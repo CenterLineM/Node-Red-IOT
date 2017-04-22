@@ -5,7 +5,10 @@
     <script type="text/javascript">
         var ws;
         var wsUri = "ws:";
-        var loc = iot.local;
+
+        var loc = window.location;
+        // 獲取目前 URL 位置資料 
+
         console.log(loc);
         if (loc.protocol === "https:") { wsUri = "wss:"; }
         // This needs to point to the web socket in the Node-RED flow
