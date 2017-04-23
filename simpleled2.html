@@ -1,19 +1,16 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-    <title>simpleled Live Display</title>
+    <title>simpleled2 Live Display</title>
     <script type="text/javascript">
         var ws;
-        var wsUri = "ws:";
-
-        var loc = window.location;
-        // 獲取目前 URL 位置資料
-
+        var wsUri = "ws://iot.local/ws/simpleled";
+        var loc = iot.local;
         console.log(loc);
         if (loc.protocol === "https:") { wsUri = "wss:"; }
         // This needs to point to the web socket in the Node-RED flow
-        // ... in this case it's ws/simpleled
-        wsUri += "//" + loc.host + loc.pathname.replace("simpleled","ws/simpleled");
+        // ... in this case it's ws/simpleled2
+        //wsUri = "";
 
         function wsConnect() {
             console.log("connect",wsUri);
@@ -51,7 +48,7 @@
     </head>
     <body onload="wsConnect();" onunload="ws.disconnect();">
         <font face="Arial">
-        <h1>simpleled Live Display</h1>
+        <h1>simpleled2 Live Display</h1>
         <div id="messages"></div>
         <button type="button" onclick='doit("on");'>Click to send message</button>
         <hr/>
